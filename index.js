@@ -10,7 +10,7 @@ function Phrase(content) {
 
   // Returns content processed for palindrome testing.
   this.processedContent = function processedContent() {
-    return this.content.toLowerCase();
+    return this.letters().toLowerCase();
   }
   //Return the letters in the content.
     // For example:
