@@ -1,53 +1,4 @@
-/*
-// Reverses a string.
-function reverse(string) {
-  return Array.from(string).reverse().join('');
-}
-
-// Returns true for a palindrome, false otherwise.
-function palindrome(string) {
-      let processContent = string.toLowerCase();
-      return processContent  === reverse(processContent);
-}
-
-
-
-// Reverses a string.
-function reverse(string) {
-  return Array.from(string).reverse().join("");
-}
-
-function Phrase(content) {
-this.content = content;
-this.processor = function(string) {
-return string.toLowerCase();
-}
-this.processedContent = function processedContent() {
-return this.processor(this.content);
-}
-
-
-  // Returns true if the phrase is a palindrome, false otherwise.
-  this.palindrome = function palindrome() {
-    return this.processedContent() === reverse(this.processedContent());
-  }
-}
-
-// Defines a TranslatedPhrase object.
-function TranslatedPhrase(content, translation) {
-  this.content = content;
-  this.translation = translation;
-
-  // Returns translation processed for palindrome testing.
-  this.processedContent = function processedContent() {
-    return this.translation.toLowerCase();
-  }
-}
-
-TranslatedPhrase.prototype = new Phrase();
-*/
-
-
+module.exports =  Phrase;
 // Adds `reverse` to all strings.
 String.prototype.reverse = function() {
   return Array.from(this).reverse().join("");
@@ -61,7 +12,22 @@ function Phrase(content) {
   this.processedContent = function processedContent() {
     return this.content.toLowerCase();
   }
-
+  //Return the letters in the content.
+    // For example:
+       // new Phrase("Hello, world!").letters === "Helloworld"
+  this.letters = function letters() {
+    return (this.content.match(/[a-z]/gi) ||
+    []).join("");
+     /* let theLetters = [];
+    const letterRegex = /[a-z]/i;
+    for (let i = 0; i < this.content.length; i++) {
+      let character = this.content.charAt(i);
+      if (character.match(letterRegex)) {
+        theLetters.push(character);
+      }
+    }
+    return theLetters.join(""); */
+  }
   // Returns true if the phrase is a palindrome, false otherwise.
   this.palindrome = function palindrome() {
     return this.processedContent() === this.processedContent().reverse();
